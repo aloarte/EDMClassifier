@@ -1,19 +1,19 @@
 package com.p4r4d0x.edmclassifierdata.repositories
 
-import com.p4r4d0x.edmclassifierdomain.SongClassification
-import com.p4r4d0x.edmclassifierdomain.SongData
+import com.p4r4d0x.edmclassifierdata.bo.SongClassificationBO
+import com.p4r4d0x.edmclassifierdata.bo.SongDataBO
 
 class ClassifySongRepository(
     private val classifySongSource: ClassifySongSource
 ) {
 
-    fun requestUserStats(songData: SongData): List<SongClassification> {
+    fun requestUserStats(songData: SongDataBO): List<SongClassificationBO> {
         return classifySongSource.classifySong(songData)
     }
 }
 
 interface ClassifySongSource {
-    fun classifySong(songData: SongData): List<SongClassification>
+    fun classifySong(songData: SongDataBO): List<SongClassificationBO>
 }
 
 
