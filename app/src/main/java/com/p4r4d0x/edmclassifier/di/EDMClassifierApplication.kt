@@ -10,7 +10,16 @@ class EDMClassifierApplication : Application() {
         // Start Koin
         startKoin {
             androidContext(this@EDMClassifierApplication)
-            modules(appModule)
+            modules(
+                listOf(
+                    appModule,
+                    networkingModule,
+                    viewModelModule,
+                    useCaseModule,
+                    dataSourcesModule,
+                    repositoriesModule
+                )
+            )
         }
     }
 }

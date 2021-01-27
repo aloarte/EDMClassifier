@@ -1,10 +1,22 @@
 package com.p4r4d0x.edmclassifier
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.p4r4d0x.edmclassifierdata.repositories.ProfileInfoRepository
+import androidx.lifecycle.viewModelScope
+import com.p4r4d0x.edmclassifierdata.bo.UserStatsBO
+import com.p4r4d0x.edmclassifierdata.usecases.ProfileInfoUseCase
 
-class HistoryViewModel(private val profileInfoRepository: ProfileInfoRepository) : ViewModel() {
-    fun getHistoryForProfile(profileId: Long) {
-        profileInfoRepository.requestUserStats(profileId)
+class HistoryViewModel(private val getProfileInfoUseCase: ProfileInfoUseCase) : ViewModel() {
+
+    private val _savedProfile: MutableLiveData<UserStatsBO> by lazy { MutableLiveData<UserStatsBO>() }
+    val savedProfile: UserStatsBO?
+        get() = _savedProfile.value
+
+
+    fun getHistoryForProfile(profileId: String) {
+        val params = ProfileInfoUseCase.Params(profileId)
+        getProfileInfoUseCase.invoke(viewModelScope, params = params) {
+            _savedProfile.value = it
+        }
     }
 }
