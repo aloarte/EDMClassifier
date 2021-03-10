@@ -1,7 +1,8 @@
 package com.p4r4d0x.edmclassifier.di
 
-import com.p4r4d0x.edmclassifier.HistoryViewModel
-import com.p4r4d0x.edmclassifier.ProfileInfoDataSource
+import com.p4r4d0x.edmclassifier.datasource.ProfileInfoDataSource
+import com.p4r4d0x.edmclassifier.ui.history.viewmodel.HistoryViewModel
+import com.p4r4d0x.edmclassifier.ui.record.viewmodel.AudioFeaturesViewModel
 import com.p4r4d0x.edmclassifierdata.repositories.ClassifySongRepository
 import com.p4r4d0x.edmclassifierdata.repositories.ProfileInfoRepository
 import com.p4r4d0x.edmclassifierdata.sources.ProfileInfoSource
@@ -16,6 +17,8 @@ val appModule = module {
 }
 val viewModelModule = module {
     viewModel { HistoryViewModel(get()) }
+    viewModel { AudioFeaturesViewModel() }
+
 }
 val dataSourcesModule = module {
     factory<ProfileInfoSource> { (ProfileInfoDataSource()) }

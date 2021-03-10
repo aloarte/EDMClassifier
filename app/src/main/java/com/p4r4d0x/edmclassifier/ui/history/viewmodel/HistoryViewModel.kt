@@ -1,4 +1,4 @@
-package com.p4r4d0x.edmclassifier
+package com.p4r4d0x.edmclassifier.ui.history.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

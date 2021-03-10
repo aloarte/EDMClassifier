@@ -1,6 +1,8 @@
 plugins {
     id 'java-library'
     id 'kotlin'
+    id 'kotlin-kapt'
+
 }
 
 java {
@@ -11,7 +13,6 @@ java {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
     implementation project(':domain')
+
 }

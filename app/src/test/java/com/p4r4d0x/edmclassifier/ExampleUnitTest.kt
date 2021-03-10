@@ -3,6 +3,7 @@ package com.p4r4d0x.edmclassifier
 import android.os.Build
 import androidx.test.runner.AndroidJUnit4
 import com.p4r4d0x.edmclassifier.di.viewModelModule
+import com.p4r4d0x.edmclassifier.ui.history.viewmodel.HistoryViewModel
 import com.p4r4d0x.edmclassifierdata.usecases.ProfileInfoUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.verify
